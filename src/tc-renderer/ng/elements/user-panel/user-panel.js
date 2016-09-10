@@ -19,6 +19,7 @@ angular.module('tc').directive('userPanel',
     $document.bind('keypress', (e) => {
       if (!session.inputFocused && scope.shouldDisplay()) {
         switch (String.fromCharCode(e.which)) {
+          case 'h': scope.showUserHistory(); break;
           case 'p': scope.purge();   break;
           case 't': scope.timeout(); break;
           case 'b': scope.ban();     break;
@@ -62,6 +63,10 @@ angular.module('tc').directive('userPanel',
       session.input.focus();
     };
 
+    scope.showUserHistory = () => {
+      console.info('Attempting to show user history');
+      session.showUserHistory = true;
+    };
     scope.timeout = (seconds) => {
       const toMsg = `.timeout ${session.selectedUser} ${(seconds || 600)}`;
       irc.say(session.selectedUserChannel, toMsg);
@@ -81,6 +86,7 @@ angular.module('tc').directive('userPanel',
     scope.close = () => {
       session.selectedUser = null;
       session.selectedUserChannel = null;
+      session.showUserHistory = null;
     };
 
     async function fetchUser() {
