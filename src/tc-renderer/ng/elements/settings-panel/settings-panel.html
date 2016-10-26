@@ -199,6 +199,22 @@
       Split chat lines for more contrast
     </md-switch>
 
+    <md-switch ng-model="settings.appearance.variableLineHeight">
+      Prevent emotes from overlapping
+      <md-tooltip md-autohide md-direction="right">
+        Use variable line height. Causes some lines to be taller.
+      </md-tooltip>
+    </md-switch>
+
+    <md-divider></md-divider>
+
+    <md-switch ng-model="settings.appearance.hideTimeouts">
+      Completely remove timeouts and bans
+      <md-tooltip>
+        Delete purged messages instead of just fading them
+      </md-tooltip>
+    </md-switch>
+
     <md-divider></md-divider>
 
     <h1 class="md-headline">Zoom Level</h1>

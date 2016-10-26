@@ -19,8 +19,10 @@ export default {
   appearance: {
     split: false,
     thumbnail: true,
+    hideTimeouts: false,
     simpleViewerCount: false,
     sidebarCollapsed: false,
+    variableLineHeight: false,
     chatters: true,
     zoom: 100
   },
